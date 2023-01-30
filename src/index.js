@@ -4,11 +4,10 @@ import { ThemeProvider } from 'styled-components';
 import Router from './Router';
 import theme from './styles/theme';
 import GlobalStyle from './styles/GlobalStyle';
-import variables from './styles/variables';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={{ style: theme, variables }}>
+  <ThemeProvider theme={theme}>
     <GlobalStyle />
     <Router />
   </ThemeProvider>
