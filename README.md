@@ -42,11 +42,9 @@
 
 ---
 
-<br/>
-
-| 김상헌(FE)                    | 김지환(FE)                     | 이다혜(FE)                   | 정다경(FE)                        | 김동규(BE) | 심예윤(BE) |
-| ----------------------------- | ------------------------------ | ---------------------------- | --------------------------------- | ---------- | ---------- |
-| https://github.com/sangheon-k | https://github.com/jhjhjh01000 | https://github.com/sally-dot | https://github.com/Jeong-Dagyeong |            |            |
+| 김상헌(FE)                    | 김지환(FE)                     | 이다혜(FE)                   | 정다경(FE)                        | 김동규(BE)                  | 심예윤(BE)                 |
+| ----------------------------- | ------------------------------ | ---------------------------- | --------------------------------- | --------------------------- | -------------------------- |
+| https://github.com/sangheon-k | https://github.com/jhjhjh01000 | https://github.com/sally-dot | https://github.com/Jeong-Dagyeong | https://github.com/pythakyu | https://github.com/yeyunny |
 
 ### 프로젝트 기간
 
