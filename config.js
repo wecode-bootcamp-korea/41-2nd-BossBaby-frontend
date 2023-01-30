@@ -24,7 +24,7 @@ export const fetchApi = async (url, method = 'GET', fetchData, auth) => {
         'Content-Type': 'application/json;charset=utf-8',
         Authorization: auth ? localStorage.getItem('accessToken') : null,
       },
-      body: JSON.stringify(fetchdata),
+      body: JSON.stringify(fetchData),
     });
     return res.json();
   } catch (e) {
