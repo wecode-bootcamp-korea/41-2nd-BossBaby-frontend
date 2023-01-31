@@ -14,16 +14,16 @@ import Payment from './pages/Payment/Payment';
 export default function Router() {
   return (
     <BrowserRouter>
-      <Nav />
+      <Nav>
+        <Login />
+      </Nav>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/mypage" element={<Mypage />}>
-          <Route path="like" element={<Mypage />} />
-          <Route path="sell" element={<Mypage />} />
-          <Route path="buy" element={<Mypage />} />
-          <Route path="reviews" element={<Mypage />} />
-        </Route>
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="like" element={<Mypage />} />
+        <Route path="sell" element={<Mypage />} />
+        <Route path="buy" element={<Mypage />} />
+        <Route path="reviews" element={<Mypage />} />
         <Route path="/babeeTalk" element={<BaBeeTalk />} />
         <Route path="/productdetail" element={<ProductDetail />} />
         <Route path="/productlist" element={<ProductList />} />
