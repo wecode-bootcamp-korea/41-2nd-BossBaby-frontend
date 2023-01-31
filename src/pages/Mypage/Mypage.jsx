@@ -1,25 +1,20 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { decrease, increase } from '../../redux/slices/counterSlice';
+import styled from 'styled-components';
+import MypageUserInfo from './components/MypageUserInfo';
+import MypageContents from './components/MypageContents';
 
 const Mypage = () => {
-  const count = useSelector(state => state.counter.value);
-  const dipatch = useDispatch();
-
-  const onIncrease = () => {
-    dipatch(increase());
-  };
-  const onDecrease = () => {
-    dipatch(decrease());
-  };
-
   return (
-    <div>
-      <span>{count}</span>
-      <button onClick={onIncrease}>+</button>
-      <button onClick={onDecrease}>-</button>
-    </div>
+    <Container>
+      <MypageUserInfo />
+      <MypageContents />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  width: 1024px;
+  margin: 0 auto;
+`;
 
 export default Mypage;
