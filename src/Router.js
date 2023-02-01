@@ -25,8 +25,10 @@ export default function Router() {
           <Route path="reviews" element={<Mypage />} />
         </Route>
         <Route path="/babeeTalk" element={<BaBeeTalk />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
-        <Route path="/productlist" element={<ProductList />} />
+        <Route path="/productdetail/:id" element={<ProductDetail />} />
+        <Route path="/productlist" element={<ProductList />}>
+          <Route path="search" element={<ProductList />} />
+        </Route>
         <Route path="/productsell" element={<ProductSell />} />
         <Route path="/payment" element={<Payment />} />
       </Routes>

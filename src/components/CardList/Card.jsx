@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SelectOpt from './SelectOpt';
 
-const Card = ({ product, selectOpt }) => {
+const Card = ({ product, setOptValue, selectOpt }) => {
   const { title, thumbnail_img, price, status } = product;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
@@ -24,7 +24,13 @@ const Card = ({ product, selectOpt }) => {
       </ImgWrapper>
       <Name>{title}</Name>
       <Price>{parseInt(price).toLocaleString()}원</Price>
-      {selectOpt && <SelectOpt status={status} />}
+      {selectOpt && (
+        <SelectOpt
+          productId={product.id}
+          status={status}
+          setOptValue={setOptValue}
+        />
+      )}
     </CardWrapper>
   );
 };
@@ -39,6 +45,8 @@ const ImgWrapper = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 5px;
+  width: 210px;
+  height: 210px;
 `;
 
 const ProductImg = styled.img`

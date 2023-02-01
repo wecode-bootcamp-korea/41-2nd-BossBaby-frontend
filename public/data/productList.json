@@ -1,0 +1,109 @@
+{
+  "productList": [
+    {
+      "id": 94,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 95,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 96,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 97,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 98,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 99,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 100,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 101,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 102,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 103,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 104,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 105,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 106,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 107,
+      "title": "유저테스트",
+      "price": "88000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    },
+    {
+      "id": 108,
+      "title": "user2_test4",
+      "price": "90000.000",
+      "status": "selling",
+      "thumbnail_img": "이미지1"
+    }
+  ]
+}
