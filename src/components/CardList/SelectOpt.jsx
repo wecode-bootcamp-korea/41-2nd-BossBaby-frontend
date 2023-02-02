@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SelectOpt = ({ productStatus, setOptValue }) => {
-  const handleChange = e => {
-    setOptValue(e.target.value);
+const SelectOpt = ({ productId, status, setOptValue }) => {
+  const handleChange = (e, productId) => {
+    setOptValue(e.target.value, productId);
   };
 
   return (
-    <SelectOption onChange={handleChange} value={productStatus}>
+    <SelectOption onChange={e => handleChange(e, productId)} value={status}>
       {SELECT_OPT_LIST.map(opt => {
         const { id, value, title } = opt;
         return (
