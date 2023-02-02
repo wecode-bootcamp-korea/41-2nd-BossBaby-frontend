@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardList = ({ item }) => {
+  const { url, id } = item;
   return (
     <CardWrapper>
       <ImgWrapper>
-        <ProductImg src={item.url} alt="product" />
+        <ProductImg src={url} alt="product" />
       </ImgWrapper>
-      <Name>{item.name}</Name>
-      <Price>{item.price}</Price>
+      <Name>상품명{id}</Name>
+      <Price>10000원</Price>
     </CardWrapper>
   );
 };
