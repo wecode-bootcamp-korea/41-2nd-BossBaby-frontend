@@ -1,6 +1,9 @@
 export const API = {
   login: `${process.env.REACT_APP_BASE_URL}/auth/kakao-login`,
   items: `${process.env.REACT_APP_BASE_URL}/items`,
+  detail: `${process.env.REACT_APP_BASE_URL}/products/detail`,
+  seller: `${process.env.REACT_APP_BASE_URL}/products/seller/info`,
+  likes: `${process.env.REACT_APP_BASE_URL}products/likes`,
   cart: `${process.env.REACT_APP_BASE_URL}/carts`,
   signin: `${process.env.REACT_APP_BASE_URL}/signin`,
   signup: `${process.env.REACT_APP_BASE_URL}/signup`,

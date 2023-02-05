@@ -1,0 +1,18 @@
+{
+  "sellerReview": [
+    {
+      "id": 1,
+      "review_details": "111111",
+      "grade": 5,
+      "nickname": "11111",
+      "images": ["asdcfde", "asfvfr"]
+    },
+    {
+      "id": 2,
+      "review_details": "222222",
+      "grade": 4,
+      "nickname": "11111",
+      "images": ["img_1", "img_2", "img_3"]
+    }
+  ]
+}

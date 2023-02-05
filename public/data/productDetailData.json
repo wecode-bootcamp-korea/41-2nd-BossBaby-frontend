@@ -1,0 +1,42 @@
+{
+  "productid": 0,
+  "category": "inner",
+  "title": "유아용 속옷 판매",
+  "images": ["https://via.placeholder.com/600/24f355"],
+  "condition": "new",
+  "exchangable": 0,
+  "region": "서울 특별시",
+  "productDesc": "유아용 속옷을 판매하고 싶습니다.",
+  "sellerInfo": {
+    "userid": 0,
+    "email": "",
+    "avatar": "https://via.placeholder.com/600/24f355",
+    "name": "",
+    "nickname": "중고조아",
+    "reviews": [
+      {
+        "reviewid": 0,
+        "userid": 0,
+        "avatar": "",
+        "nickname": "",
+        "images": [],
+        "contents": "",
+        "grade": 0
+      },
+      {
+        "reviewid": 0,
+        "userid": 0,
+        "avatar": "",
+        "nickname": "",
+        "images": [],
+        "contents": "",
+        "grade": 0
+      }
+    ]
+  },
+  "price": "5000.000",
+  "like": 5,
+  "views": 0,
+  "createDate": "2023-1-31 13:52",
+  "productStatus": "pending"
+}

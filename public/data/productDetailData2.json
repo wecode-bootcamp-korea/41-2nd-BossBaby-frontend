@@ -1,0 +1,25 @@
+{
+  "productDetail": [
+    {
+      "id": 94,
+      "title": "user2_test4",
+      "price": "9000.000",
+      "description": "테스트입니다",
+      "region": "경기도",
+      "views": 0,
+      "exchangable": 1,
+      "seller_id": 61,
+      "sub_categories": "inner",
+      "status": "selling",
+      "conditions": "new",
+      "created_at": "2023-02-08T12:31:02.000Z",
+      "images": [
+        "https://via.placeholder.com/600/24f355",
+        "이미지2",
+        "이미지3"
+      ],
+      "like": 5,
+      "likeOrNot": "1"
+    }
+  ]
+}
