@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Grade from '../Common/Grade';
 import Thumbnail from '../Common/Thumbnail';
-import Img from '../Common/Img';
 import Title from '../Common/Title';
+import Grade from '../Common/Grade';
+import Img from '../Common/Img';
 
-const ReviewCard = () => {
+const ReviewCard = ({ review }) => {
+  const { id, review_details, grade, nickname, images } = review;
+
   return (
     <ReviewContainer>
       <ReviewHeader>
@@ -15,19 +17,19 @@ const ReviewCard = () => {
             alt="유저 이미지"
             size="54px"
           />
-          <Title title="중고거래왕" size="18px" weight="normal" />
+          <Title title={nickname} size="18px" weight="normal" />
         </UserInfo>
-        <Grade stars={3} />
+        <Grade stars={grade} />
       </ReviewHeader>
       <ReviewBody>
         <ImgList>
-          {MOCK_REVIEW_IMAGES.map((src, index) => (
+          {images.map((img, index) => (
             <WrapImg key={index}>
-              <Img src={src} />
+              <Img src={img || '/images/mypage/img_review.png'} />
             </WrapImg>
           ))}
         </ImgList>
-        <ReviewText>리뷰 최고</ReviewText>
+        <Text>{review_details}</Text>
       </ReviewBody>
     </ReviewContainer>
   );
@@ -64,9 +66,6 @@ const ImgList = styled.div`
   display: flex;
 `;
 
-const ReviewText = styled.p`
-  margin-top: 24px;
-`;
 const WrapImg = styled.div`
   overflow: hidden;
   width: 118px;
@@ -75,10 +74,8 @@ const WrapImg = styled.div`
   border-radius: 5px;
 `;
 
-export default ReviewCard;
+const Text = styled.p`
+  margin-top: 24px;
+`;
 
-const MOCK_REVIEW_IMAGES = [
-  '/images/mypage/img_review.png',
-  '/images/mypage/img_review.png',
-  '/images/mypage/img_review.png',
-];
+export default ReviewCard;

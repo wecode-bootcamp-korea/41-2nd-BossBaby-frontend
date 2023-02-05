@@ -28,6 +28,7 @@ const SelectOption = styled.select`
   font-size: 12px;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
+  z-index: 100;
 `;
 
 const Opt = styled.option``;

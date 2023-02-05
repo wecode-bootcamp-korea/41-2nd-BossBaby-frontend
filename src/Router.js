@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Mypage from './pages/Mypage/Mypage';
 import BaBeeTalk from './pages/BaBeeTalk/BaBeeTalk';
@@ -19,10 +20,10 @@ export default function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/kakaologin" element={<KakaoLogin />} />
         <Route path="/mypage" element={<Mypage />}>
-          <Route path="like" element={<Mypage />} />
-          <Route path="sell" element={<Mypage />} />
-          <Route path="buy" element={<Mypage />} />
           <Route path="reviews" element={<Mypage />} />
+          <Route path="likes" element={<Mypage />} />
+          <Route path="selling" element={<Mypage />} />
+          <Route path="orders" element={<Mypage />} />
         </Route>
         <Route path="/babeeTalk" element={<BaBeeTalk />} />
         <Route path="/productdetail/:id" element={<ProductDetail />} />

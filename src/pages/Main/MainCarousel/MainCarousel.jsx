@@ -86,11 +86,13 @@ const First = styled.div`
 const FirstTitle = styled.p`
   font-weight: 800;
   font-size: 70px;
+  color: white;
 `;
 
 const FirstSub = styled.p`
   margin: 10px;
   font-size: 35px;
+  color: white;
 `;
 
 const Second = styled.div`
@@ -105,17 +107,19 @@ const Second = styled.div`
 const SecondTitle = styled.p`
   margin: 10px;
   font-size: 45px;
+  color: white;
 `;
 
 const SecondSub = styled.p`
   font-size: 60px;
   font-weight: 800;
+  color: white;
 `;
 
 const ThirdTitle = styled.p`
   position: absolute;
-  top: 50%;
-  left: 30%;
+  top: 48%;
+  left: 27%;
   color: white;
   text-align: center;
   font-size: 45px;
@@ -124,6 +128,7 @@ const ThirdTitle = styled.p`
 
 const Logo = styled.span`
   font-weight: 700;
+  color: white;
 `;
 
 const PrevBtn = styled.div`

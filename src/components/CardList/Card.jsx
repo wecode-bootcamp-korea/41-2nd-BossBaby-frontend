@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import SelectOpt from './SelectOpt';
 
 const Card = ({ product, setOptValue, selectOpt }) => {
-  const { title, thumbnail_img, price, status } = product;
+  const { id, title, thumbnail_img, price, status } = product;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
   const statusOption = {
@@ -13,24 +14,26 @@ const Card = ({ product, setOptValue, selectOpt }) => {
 
   return (
     <CardWrapper>
-      <ImgWrapper>
-        <ProductImg src={thumbnail_img} alt="product" />
-        {isProductSoldout && <Dimd />}
-        {!isProductSelling && (
-          <ProductStatus bgColor={statusOption.bgColor}>
-            {statusOption.text}
-          </ProductStatus>
+      <CardLink to={`/productDetail/${id}`}>
+        <ImgWrapper>
+          <ProductImg src={thumbnail_img} alt="product" />
+          {isProductSoldout && <Dimd />}
+          {!isProductSelling && (
+            <ProductStatus bgColor={statusOption.bgColor}>
+              {statusOption.text}
+            </ProductStatus>
+          )}
+        </ImgWrapper>
+        <Name>{title}</Name>
+        <Price>{parseInt(price).toLocaleString()}원</Price>
+        {selectOpt && (
+          <SelectOpt
+            productId={product.id}
+            status={status}
+            setOptValue={setOptValue}
+          />
         )}
-      </ImgWrapper>
-      <Name>{title}</Name>
-      <Price>{parseInt(price).toLocaleString()}원</Price>
-      {selectOpt && (
-        <SelectOpt
-          productId={product.id}
-          status={status}
-          setOptValue={setOptValue}
-        />
-      )}
+      </CardLink>
     </CardWrapper>
   );
 };
@@ -39,6 +42,10 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+`;
+
+const CardLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const ImgWrapper = styled.div`
@@ -81,9 +88,13 @@ const ProductStatus = styled.div`
 `;
 
 const Name = styled.div`
-  margin: 10px 5px 5px;
+  overflow: hidden;
+  width: 200px;
+  margin: 15px 5px 9px;
   font-size: 16px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Price = styled.div`

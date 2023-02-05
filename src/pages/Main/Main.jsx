@@ -25,9 +25,10 @@ const Main = () => {
         <div>
           <Title>오늘의 상품 추천</Title>
           <SuggestionImg>
-            {recommend.map(item => {
-              return <RecommendList key={item.id} item={item} />;
-            })}
+            {recommend.length > 0 &&
+              recommend.map(item => {
+                return <RecommendList key={item.id} item={item} />;
+              })}
           </SuggestionImg>
         </div>
         <div>
@@ -48,6 +49,7 @@ const MainWrapper = styled.div`
 const MainContent = styled.div`
   width: 1024px;
   margin: auto;
+  padding-bottom: 100px;
 `;
 
 const Title = styled.div`

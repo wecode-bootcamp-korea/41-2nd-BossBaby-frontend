@@ -9,7 +9,7 @@ const TypeButton = ({ sellList, handleSellList, name, value }) => {
           type="radio"
           name={name}
           value={1}
-          checked={sellList[name] === value}
+          checked={sellList[name] === parseInt(value)}
           onChange={handleSellList}
         />
         <Statuslabel>
@@ -21,7 +21,7 @@ const TypeButton = ({ sellList, handleSellList, name, value }) => {
           type="radio"
           name={name}
           value={name === 'conditionId' ? 2 : 0}
-          checked={sellList[name] !== value}
+          checked={sellList[name] !== parseInt(value)}
           onChange={handleSellList}
         />
         <Statuslabel>

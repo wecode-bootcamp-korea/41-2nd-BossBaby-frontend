@@ -51,6 +51,9 @@ const ProductDetailTop = ({ productId }) => {
   };
 
   const handleBabeeTalk = () => {
+    alert('오픈 준비중입니다!');
+    return;
+
     localStorage.getItem('token')
       ? moveTotalk()
       : alert('로그인 후 이용해주세요');
@@ -68,8 +71,12 @@ const ProductDetailTop = ({ productId }) => {
                   <div className="categoryName">
                     {productObj.sub_categories}
                   </div>
-                  <div className="productName">{productObj.title}</div>
-                  <div className="price">{productObj.price}원</div>
+                  <div className="productName">
+                    {productObj.title.replaceAll('"', '')}
+                  </div>
+                  <div className="price">
+                    {parseInt(productObj.price).toLocaleString()}원
+                  </div>
                 </DivWrap>
 
                 {productObj.status === 'pending' ? (

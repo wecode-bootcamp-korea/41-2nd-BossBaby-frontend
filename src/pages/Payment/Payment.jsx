@@ -30,6 +30,8 @@ const Payment = () => {
   );
   const isLogin = !!localStorage.getItem('token');
 
+  console.log(productInfo);
+
   useEffect(() => {
     if (!isLogin) {
       alert('로그인 후 이용 가능합니다.');
@@ -41,17 +43,15 @@ const Payment = () => {
   const fetchProductInfo = () => {
     if (location.state !== null) {
       const { product_id, price, thumbnail, title } = productInfo;
-      const { point, laundry_fee } = payInfo;
       const newPayInfo = { ...payInfo };
 
       newPayInfo.product_id = product_id;
-      newPayInfo.price = price;
-      newPayInfo.total_price = price + point + laundry_fee;
+      newPayInfo.price = parseInt(price);
+      newPayInfo.total_price =
+        parseInt(price) + payInfo.point + payInfo.laundry_fee;
       setPayInfo(newPayInfo);
     }
   };
-  console.log(isLogin);
-  console.log(productInfo);
 
   const handlePayment = async () => {
     const fetchData = {
@@ -59,13 +59,7 @@ const Payment = () => {
       totalprice: payInfo.total_price,
       productId: payInfo.product_id,
     };
-    const result = await fetchApi(
-      'http://10.58.52.166:3000/orders',
-      'POST',
-      fetchData,
-      true
-    );
-
+    const result = await fetchApi(`${API.orders}`, 'POST', fetchData, true);
     if (result.message === 'ORDER_SUCCESS') {
       alert('결제 성공!');
       navigate('/');

@@ -4,13 +4,13 @@ import Title from './Common/Title';
 import Thumbnail from './Common/Thumbnail';
 
 const PaymentHeader = ({ productInfo }) => {
-  const { product_id, price, thumbnail, title } = productInfo;
+  const { product_id, price, thunbnail, title } = productInfo;
 
   return (
     <PaymentHeaderContainer>
       <Title title="결제하기" fontSize={24} />
       <ProductItem>
-        <Thumbnail src={thumbnail} alt="" size={50} />
+        <Thumbnail src={thunbnail} alt="" size={50} />
         <WrapInfo>
           <Title title={`${price.toLocaleString()}원`} fontSize={18} />
           <Text>{title}</Text>

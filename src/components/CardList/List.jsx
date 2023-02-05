@@ -11,15 +11,15 @@ const List = ({ url, column, selectOpt }) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
       .then(data => {
         isMypage ? setProducts(data.products) : setProducts(data);
+        console.log(data);
       });
-  }, []);
+  }, [url]);
 
   const setOptValue = (selectedStatus, productId) => {
     console.log('상태변경실행!', selectedStatus, productId);

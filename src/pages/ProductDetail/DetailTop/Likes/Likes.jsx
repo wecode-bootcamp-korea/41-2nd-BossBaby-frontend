@@ -13,8 +13,7 @@ function Likes({ productObj, setProductObj }) {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
-            authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5NjA0ODJ9.NDPv2mvJaBwaxGVwkSMySnJCyyDYOeNaQqasp_pMn_k',
+            authorization: localStorage.getItem('token'),
           },
           body: JSON.stringify({
             productId: { id },
@@ -33,8 +32,7 @@ function Likes({ productObj, setProductObj }) {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
-            authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5NjA0ODJ9.NDPv2mvJaBwaxGVwkSMySnJCyyDYOeNaQqasp_pMn_k',
+            authorization: localStorage.getItem('token'),
           },
           body: JSON.stringify({ productId: { id } }),
         })
@@ -55,9 +53,9 @@ function Likes({ productObj, setProductObj }) {
     <Container>
       <LikeButton>
         {likeOrNot === '0' || likeOrNot === null ? (
-          <FaHeart onClick={likeHandler} color="grey" width="20" height="20" />
+          <FaHeart onClick={likeHandler} fill="grey" width="20" height="20" />
         ) : (
-          <FaHeart onClick={likeHandler} color="red" width="20" height="20" />
+          <FaHeart onClick={likeHandler} fill="red" width="20" height="20" />
         )}
       </LikeButton>
       <LikeCount>{total_likes}</LikeCount>
