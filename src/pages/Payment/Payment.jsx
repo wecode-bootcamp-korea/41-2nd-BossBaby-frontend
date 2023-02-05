@@ -14,7 +14,6 @@ const Payment = () => {
     </PaymentContainer>
   );
 };
-
 const PaymentContainer = styled.div`
   width: 640px;
   margin: 0 auto;
@@ -39,5 +38,4 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
 `;
-
 export default Payment;

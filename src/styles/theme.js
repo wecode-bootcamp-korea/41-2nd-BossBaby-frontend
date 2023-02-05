@@ -7,7 +7,7 @@ const theme = {
   darkGrey: '#333333', // 검정대신 쓸 것
   mediumGrey: '#666666',
   lightGrey: '#999999',
-  darkGreen: '#486344',
+  darkGreen: '#486344', //예약중 배경
 };
 
 export default theme;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Grade from '../Common/Grade';
-import Thumbnail from '../Common/Thumbnail';
-import Img from '../Common/Img';
-import Title from '../Common/Title';
+import Grade from '../../../Mypage/components/Common/Grade';
+import Thumbnail from '../../../Mypage/components/Common/Thumbnail';
+import Img from '../../../Mypage/components/Common/Img';
+import Title from '../../../Mypage/components/Common/Title';
 
 const ReviewCard = () => {
   return (
@@ -27,7 +27,7 @@ const ReviewCard = () => {
             </WrapImg>
           ))}
         </ImgList>
-        <ReviewText>리뷰 최고</ReviewText>
+        <p style={{ marginTop: '24px' }}>리뷰 최고</p>
       </ReviewBody>
     </ReviewContainer>
   );
@@ -53,7 +53,6 @@ const ReviewHeader = styled.div`
 const UserInfo = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
 `;
 
 const ReviewBody = styled.div`
@@ -64,9 +63,6 @@ const ImgList = styled.div`
   display: flex;
 `;
 
-const ReviewText = styled.p`
-  margin-top: 24px;
-`;
 const WrapImg = styled.div`
   overflow: hidden;
   width: 118px;
