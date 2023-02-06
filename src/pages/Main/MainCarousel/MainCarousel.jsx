@@ -16,12 +16,12 @@ const MainCarousel = () => {
     pauseOnHover: true,
     prevArrow: (
       <PrevBtn>
-        <Img src="./images/Main/arrow-left.png" alt="left" />
+        <BtnImg src="./images/Main/arrow-left.png" alt="left" />
       </PrevBtn>
     ),
     nextArrow: (
       <NextBtn>
-        <Img src="./images/Main/arrow-right.png" alt="right" />
+        <BtnImg src="./images/Main/arrow-right.png" alt="right" />
       </NextBtn>
     ),
   };
@@ -29,15 +29,14 @@ const MainCarousel = () => {
   return (
     <CarouselWrapper>
       <StyledSlider {...settings}>
-        <div>
-          <SliderImg src="../images/Main/banner1.png" alt="photo" />
-        </div>
-        <div>
-          <SliderImg src="../images/Main/banner2.png" alt="photo" />
-        </div>
-        <div>
-          <SliderImg src="../images/Main/banner3.png" alt="photo" />
-        </div>
+        {IMAGE_LIST.map(({ id, description }) => {
+          return (
+            <SliderDiv key={id}>
+              <SliderImg src={`../images/Main/banner${id}.jpg`} alt="photo" />
+              {description}
+            </SliderDiv>
+          );
+        })}
       </StyledSlider>
     </CarouselWrapper>
   );
@@ -65,10 +64,66 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
+const SliderDiv = styled.div`
+  position: relative;
+`;
+
 const SliderImg = styled.img`
   width: 100%;
   height: 450px;
   object-fit: cover;
+`;
+
+const First = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  color: white;
+  text-align: center;
+  font-family: 'Pretendard Variable';
+`;
+
+const FirstTitle = styled.p`
+  font-weight: 800;
+  font-size: 70px;
+`;
+
+const FirstSub = styled.p`
+  margin: 10px;
+  font-size: 35px;
+`;
+
+const Second = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 32%;
+  color: white;
+  text-align: center;
+  font-family: 'Pretendard Variable';
+`;
+
+const SecondTitle = styled.p`
+  margin: 10px;
+  font-size: 45px;
+`;
+
+const SecondSub = styled.p`
+  font-size: 60px;
+  font-weight: 800;
+`;
+
+const ThirdTitle = styled.p`
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  font-family: 'Pretendard Variable';
+`;
+
+const Logo = styled.span`
+  font-weight: 700;
 `;
 
 const PrevBtn = styled.div`
@@ -87,7 +142,36 @@ const NextBtn = styled.div`
   z-index: 10;
 `;
 
-const Img = styled.img`
+const BtnImg = styled.img`
   width: 100%;
   height: 100%;
 `;
+
+const IMAGE_LIST = [
+  {
+    id: 1,
+    description: (
+      <First>
+        <FirstTitle>Everyday New</FirstTitle>
+        <FirstSub>매일이 새로운 우리 아기 옷</FirstSub>
+      </First>
+    ),
+  },
+  {
+    id: 2,
+    description: (
+      <Second>
+        <SecondTitle>깨끗하고 새로운 중고제품으로</SecondTitle>
+        <SecondSub>BaBee</SecondSub>
+      </Second>
+    ),
+  },
+  {
+    id: 3,
+    description: (
+      <ThirdTitle>
+        언제나 아기먼저 생각하는 <Logo>BaBee</Logo>
+      </ThirdTitle>
+    ),
+  },
+];
