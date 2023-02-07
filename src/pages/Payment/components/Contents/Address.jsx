@@ -2,16 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from '../Common/Title';
 
-const Address = () => {
+const Address = ({ payInfo, setPayInfo }) => {
+  const handleChangeInput = e => {
+    const newPayInfo = { ...payInfo };
+    newPayInfo.address = e.target.value;
+    console.log(newPayInfo);
+    setPayInfo(newPayInfo);
+  };
+
   return (
     <AddressInfo>
       <Title title="배송지" />
       <InputWrap>
-        <InputText placeholder="배송지를 입력해주세요." />
         <InputText
+          value={payInfo.address}
+          placeholder="배송지를 입력해주세요."
+          onChange={handleChangeInput}
+        />
+        {/* <InputText
           bgColor="#f6f6f6"
           placeholder="배송 요청사항을 입력해주세요."
-        />
+        /> */}
       </InputWrap>
     </AddressInfo>
   );
@@ -28,9 +39,11 @@ const InputWrap = styled.div`
   padding-top: 20px;
 `;
 
-const InputText = styled.input.attrs({
+const InputText = styled.input.attrs(props => ({
   type: 'text',
-})`
+  value: props.value,
+  onChange: props.onChange,
+}))`
   width: 100%;
   padding: 19px 21px;
   font-size: 15px;

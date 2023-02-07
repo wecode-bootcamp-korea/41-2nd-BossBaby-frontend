@@ -4,11 +4,11 @@ import Address from './Contents/Address';
 import Price from './Contents/Price';
 import Method from './Contents/Method';
 
-const PaymentContents = () => {
+const PaymentContents = ({ payInfo, setPayInfo }) => {
   return (
     <PaymentContentContainer>
-      <Address />
-      <Price />
+      <Address payInfo={payInfo} setPayInfo={setPayInfo} />
+      <Price payInfo={payInfo} setPayInfo={setPayInfo} />
       <Method />
     </PaymentContentContainer>
   );
