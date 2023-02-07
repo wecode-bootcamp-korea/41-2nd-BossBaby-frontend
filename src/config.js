@@ -5,6 +5,7 @@ export const API = {
   signin: `${process.env.REACT_APP_BASE_URL}/signin`,
   signup: `${process.env.REACT_APP_BASE_URL}/signup`,
   products: `${process.env.REACT_APP_BASE_URL}/products`,
+  orders: `${process.env.REACT_APP_BASE_URL}/orders`,
 };
 
 export const fetchApi = async (url, method = 'GET', fetchData, auth) => {
@@ -14,7 +15,7 @@ export const fetchApi = async (url, method = 'GET', fetchData, auth) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
-          Authorization: auth ? localStorage.getItem('accessToken') : null,
+          Authorization: auth ? localStorage.getItem('token') : null,
         },
       });
       return res.json();
@@ -23,7 +24,7 @@ export const fetchApi = async (url, method = 'GET', fetchData, auth) => {
       method,
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization: auth ? localStorage.getItem('accessToken') : null,
+        Authorization: auth ? localStorage.getItem('token') : null,
       },
       body: JSON.stringify(fetchData),
     });

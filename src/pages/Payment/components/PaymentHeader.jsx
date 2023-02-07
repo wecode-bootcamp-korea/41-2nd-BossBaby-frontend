@@ -3,15 +3,17 @@ import styled from 'styled-components';
 import Title from './Common/Title';
 import Thumbnail from './Common/Thumbnail';
 
-const PaymentHeader = () => {
+const PaymentHeader = ({ productInfo }) => {
+  const { product_id, price, thumbnail, title } = productInfo;
+
   return (
     <PaymentHeaderContainer>
       <Title title="결제하기" fontSize={24} />
       <ProductItem>
-        <Thumbnail src="/images/mypage/img_product.png" alt="" size={50} />
+        <Thumbnail src={thumbnail} alt="" size={50} />
         <WrapInfo>
-          <Title title="1,000원" fontSize={18} />
-          <Text>아기용품 무료나눔</Text>
+          <Title title={`${price.toLocaleString()}원`} fontSize={18} />
+          <Text>{title}</Text>
         </WrapInfo>
       </ProductItem>
       <PaymentInfo>

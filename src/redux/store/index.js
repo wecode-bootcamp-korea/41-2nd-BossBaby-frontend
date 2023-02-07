@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../slices/counterSlice';
 import logger from 'redux-logger';
+import counterReducer from '../slices/counterSlice';
+import paymentReducer from '../slices/paymentSlice';
 
 const reducer = {
   counter: counterReducer,
+  payment: paymentReducer,
 };
 
 export const store = configureStore({
