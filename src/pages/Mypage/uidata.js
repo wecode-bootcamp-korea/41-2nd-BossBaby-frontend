@@ -1,5 +1,5 @@
 import ReviewList from './components/Reviews/ReviewList';
-import ProductList from './components/Products/ProductList';
+import List from '../../components/CardList/List';
 
 export const TAB_LIST = [
   { id: 0, url: '/mypage/like', title: '찜 목록' },
@@ -16,14 +16,8 @@ export const TAB_MAPPING_TITLE = {
 };
 
 export const TAB_MAPPING_OBJ = {
-  like: <ProductList />,
-  sell: <ProductList hasSelect={true} />,
-  buy: <ProductList />,
+  like: <List column={3} />,
+  sell: <List column={3} selectOpt={true} />,
+  buy: <List column={3} />,
   reviews: <ReviewList />,
 };
-
-export const SELECT_OPT_LIST = [
-  { id: 0, value: 'selling', title: '판매중' },
-  { id: 1, value: 'pending', title: '예약중' },
-  { id: 2, value: 'soldout', title: '판매 완료' },
-];

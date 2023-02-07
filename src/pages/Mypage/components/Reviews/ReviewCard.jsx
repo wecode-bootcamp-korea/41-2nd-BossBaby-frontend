@@ -53,6 +53,7 @@ const ReviewHeader = styled.div`
 const UserInfo = styled.div`
   display: flex;
   align-items: center;
+  gap: 20px;
 `;
 
 const ReviewBody = styled.div`
