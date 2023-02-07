@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { API_KEY, REDIRECT_URI } from './oauthConfig';
+
+export const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code&prompt=login`;
 
 const Login = ({ setIsModalOpen }) => {
+  const handleLogin = () => {
+    window.location.href = KAKAO_AUTH_URL;
+  };
+
   document.body.style.overflow = 'hidden';
 
   const closeModal = () => {
@@ -21,7 +28,7 @@ const Login = ({ setIsModalOpen }) => {
             <Title>중고거래 시작하기</Title>
             <Describtion>간편하게 가입하고 상품을 확인하세요</Describtion>
           </Section>
-          <KakaoWrap>
+          <KakaoWrap onClick={handleLogin}>
             <KakaoIcon src="/images/kakaoIcon.png" />
             <KakaoText>카카오로 이용하기</KakaoText>
           </KakaoWrap>
