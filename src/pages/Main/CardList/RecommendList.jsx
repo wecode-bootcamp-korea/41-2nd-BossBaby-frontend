@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectOpt from './SelectOpt';
 
-const Card = ({ product, selectOpt }) => {
-  const { title, thumbnail_img, price, status } = product;
+const RecommendList = ({ item }) => {
+  const { title, price, status, thumbnail_img } = item;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
   const statusOption = {
@@ -24,10 +23,11 @@ const Card = ({ product, selectOpt }) => {
       </ImgWrapper>
       <Name>{title}</Name>
       <Price>{parseInt(price).toLocaleString()}원</Price>
-      {selectOpt && <SelectOpt status={status} />}
     </CardWrapper>
   );
 };
+
+export default RecommendList;
 
 const CardWrapper = styled.div`
   display: flex;
@@ -37,14 +37,12 @@ const CardWrapper = styled.div`
 
 const ImgWrapper = styled.div`
   position: relative;
-  overflow: hidden;
-  border-radius: 5px;
 `;
 
 const ProductImg = styled.img`
-  width: 210px;
-  height: 210px;
-  vertical-align: top;
+  width: 320px;
+  height: 220px;
+  border-radius: 5px;
 `;
 
 const Dimd = styled.span`
@@ -73,15 +71,13 @@ const ProductStatus = styled.div`
 `;
 
 const Name = styled.div`
-  margin: 10px 5px 5px;
-  font-size: 16px;
-  font-weight: 400;
+  margin: 5px;
+  font-size: 17px;
+  font-weight: 500;
 `;
 
 const Price = styled.div`
   margin: 5px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 `;
-
-export default Card;

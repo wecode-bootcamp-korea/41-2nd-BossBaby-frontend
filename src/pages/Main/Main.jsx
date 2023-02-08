@@ -1,21 +1,22 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import CardList from './CardList/CardList';
-import CardListNew from './CardList/CardListNew';
+import RecommendList from './CardList/RecommendList';
 import MainCarousel from './MainCarousel/MainCarousel';
-import MAIN_DATA from './CardList/MainData.jsx';
+import List from '../../components/CardList/List';
+import { fetchApi, API } from '../../config';
 
 const Main = () => {
-  const [productList, setProductList] = useState([]);
+  const [recommend, setRecommend] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productData.json')
-      .then(res => res.json())
-      .then(data => {
-        setProductList(data);
-      });
+    fetchData();
   }, []);
+
+  const fetchData = async () => {
+    const data = await fetchApi(`${API.products}/main/recommend`);
+    setRecommend(data);
+  };
 
   return (
     <MainWrapper>
@@ -24,18 +25,14 @@ const Main = () => {
         <div>
           <Title>오늘의 상품 추천</Title>
           <SuggestionImg>
-            {MAIN_DATA.map(item => {
-              return <CardList key={item.id} item={item} />;
+            {recommend.map(item => {
+              return <RecommendList key={item.id} item={item} />;
             })}
           </SuggestionImg>
         </div>
         <div>
           <Title>오늘 입고 됐어요 !</Title>
-          <TodayNewImg>
-            {productList.map(product => {
-              return <CardListNew key={product.id} product={product} />;
-            })}
-          </TodayNewImg>
+          <List url={`${API.products}/main/recent`} column={4} />
         </div>
       </MainContent>
     </MainWrapper>
@@ -66,13 +63,5 @@ const SuggestionImg = styled.div`
   grid-gap: 20px;
   justify-content: center;
   align-content: center;
-  margin: 0 auto;
-`;
-
-const TodayNewImg = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 40px;
-  place-items: center;
   margin: 0 auto;
 `;

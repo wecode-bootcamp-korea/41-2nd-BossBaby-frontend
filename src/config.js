@@ -4,6 +4,7 @@ export const API = {
   cart: `${process.env.REACT_APP_BASE_URL}/carts`,
   signin: `${process.env.REACT_APP_BASE_URL}/signin`,
   signup: `${process.env.REACT_APP_BASE_URL}/signup`,
+  products: `${process.env.REACT_APP_BASE_URL}/products`,
 };
 
 export const fetchApi = async (url, method = 'GET', fetchData, auth) => {

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProductCard from './Card';
 
-const List = ({ column, selectOpt }) => {
+const List = ({ url, column, selectOpt }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productData.json')
+    fetch(url)
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         setProducts(data);
       });
   }, []);
@@ -18,7 +19,7 @@ const List = ({ column, selectOpt }) => {
       {products.map(product => {
         return (
           <ProductCard
-            key={product.productid}
+            key={product.id}
             product={product}
             selectOpt={selectOpt}
           />
