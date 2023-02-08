@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import SelectOpt from './SelectOpt';
 
 const Card = ({ product, selectOpt }) => {
-  const { title, images, price, productStatus } = product;
-  const isProductSoldout = productStatus === 'soldout';
-  const isProductSelling = productStatus === 'selling';
-  const productStatusOption = {
+  const { id, title, thumbnail_img, price, status } = product;
+  const isProductSoldout = status === 'soldout';
+  const isProductSelling = status === 'selling';
+  const statusOption = {
     bgColor: isProductSoldout ? '#333' : '#486344',
     text: isProductSoldout ? '판매 완료' : '예약중',
   };
@@ -14,17 +14,17 @@ const Card = ({ product, selectOpt }) => {
   return (
     <CardWrapper>
       <ImgWrapper>
-        <ProductImg src={images[0]} alt="product" />
+        <ProductImg src={thumbnail_img} alt="product" />
         {isProductSoldout && <Dimd />}
         {!isProductSelling && (
-          <ProductStatus bgColor={productStatusOption.bgColor}>
-            {productStatusOption.text}
+          <ProductStatus bgColor={statusOption.bgColor}>
+            {statusOption.text}
           </ProductStatus>
         )}
       </ImgWrapper>
       <Name>{title}</Name>
       <Price>{parseInt(price).toLocaleString()}원</Price>
-      {selectOpt && <SelectOpt productStatus={productStatus} />}
+      {selectOpt && <SelectOpt status={status} />}
     </CardWrapper>
   );
 };

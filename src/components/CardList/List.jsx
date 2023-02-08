@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ProductCard from './Card';
 
-const List = ({ column, selectOpt }) => {
+const List = ({ url, column, selectOpt }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productData.json')
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -15,15 +15,16 @@ const List = ({ column, selectOpt }) => {
 
   return (
     <ListWrapper column={column}>
-      {products.map(product => {
-        return (
-          <ProductCard
-            key={product.productid}
-            product={product}
-            selectOpt={selectOpt}
-          />
-        );
-      })}
+      {products.length > 0 &&
+        products.map(product => {
+          return (
+            <ProductCard
+              key={product.productid}
+              product={product}
+              selectOpt={selectOpt}
+            />
+          );
+        })}
     </ListWrapper>
   );
 };
