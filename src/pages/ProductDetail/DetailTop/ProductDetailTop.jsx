@@ -79,13 +79,7 @@ const ProductDetailTop = ({ productId }) => {
                 ) : null}
               </LeftContent>
               <RightContent>
-                <Likes
-                  // total_likes={productObj.total_likes}
-                  // productid={productObj.id}
-                  // likeOrNot={productObj.likeOrNot}
-                  productObj={productObj}
-                  setProductObj={setProductObj}
-                />
+                <Likes productObj={productObj} setProductObj={setProductObj} />
               </RightContent>
             </ContentTopWrap>
             <ContentBottomWrap>

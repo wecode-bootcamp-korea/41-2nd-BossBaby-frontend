@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaHeart } from 'react-icons/fa';
 import { API } from '../../../../config';
@@ -14,7 +14,7 @@ function Likes({ productObj, setProductObj }) {
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
             authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5NjA0ODJ9.NDPv2mvJaBwaxGVwkSMySnJCyyDYOeNaQqasp_pMn_k',
           },
           body: JSON.stringify({
             productId: { id },
@@ -22,6 +22,7 @@ function Likes({ productObj, setProductObj }) {
         })
           .then(res => res.json())
           .then(data => {
+            console.log('aa', data);
             const newProductObj = { ...productObj };
             newProductObj.likeOrNot = likeOrNot === '0' ? '1' : '0';
             newProductObj.total_likes = data.likes;
@@ -33,7 +34,7 @@ function Likes({ productObj, setProductObj }) {
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
             authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5NjA0ODJ9.NDPv2mvJaBwaxGVwkSMySnJCyyDYOeNaQqasp_pMn_k',
           },
           body: JSON.stringify({ productId: { id } }),
         })
