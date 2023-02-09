@@ -4,7 +4,6 @@ import { HiOutlineChevronRight, HiOutlineChevronLeft } from 'react-icons/hi';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 const Carousel = ({ images }) => {
   const settings = {
     dots: true,
@@ -24,7 +23,6 @@ const Carousel = ({ images }) => {
       </ImageRightButton>
     ),
   };
-
   return (
     <ProductImageWrapper>
       <StyledSlider {...settings}>
@@ -40,13 +38,11 @@ const Carousel = ({ images }) => {
   );
 };
 export default Carousel;
-
 const ProductImageWrapper = styled.div`
   width: 430px;
   height: 430px;
   margin-right: 30px;
 `;
-
 const StyledSlider = styled(Slider)`
   position: relative;
   height: 100%;
@@ -60,7 +56,6 @@ const StyledSlider = styled(Slider)`
     outline: none;
   }
 `;
-
 const ImageDiv = styled.div`
   position: relative;
 `;
@@ -70,7 +65,6 @@ const ProductImages = styled.img`
   height: 430px;
   object-fit: cover;
 `;
-
 const ImageRightButton = styled.button`
   position: absolute;
   top: 50%;
@@ -82,7 +76,6 @@ const ImageRightButton = styled.button`
   cursor: pointer;
   z-index: 10;
 `;
-
 const ImageLeftButton = styled.button`
   position: absolute;
   top: 50%;
@@ -93,15 +86,3 @@ const ImageLeftButton = styled.button`
   cursor: pointer;
   z-index: 10;
 `;
-
-const IMAGE_LIST = [
-  {
-    id: 1,
-  },
-  {
-    id: 2,
-  },
-  {
-    id: 3,
-  },
-];

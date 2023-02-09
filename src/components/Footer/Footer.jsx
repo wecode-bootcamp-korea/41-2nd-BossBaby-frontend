@@ -158,6 +158,7 @@ const FooterSpan = styled.span`
 const FooterP = styled.p`
   font-size: 12px;
   letter-spacing: -0.5px;
+  line-height: 1;
 `;
 
 const FooterMainWrapper = styled.div`
@@ -182,7 +183,7 @@ const FooterTitle = styled.div`
 `;
 
 const RightBox = styled.div`
-  height: 20px;
+  /* height: 20px; */
 `;
 
 const Divide = styled.span`

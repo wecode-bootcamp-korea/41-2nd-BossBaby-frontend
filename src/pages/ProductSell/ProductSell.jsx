@@ -73,36 +73,35 @@ const ProductSell = () => {
       formData.append(item, JSON.stringify(sellList[item]))
     );
 
-    // fetch('http://10.58.52.191:3000/products', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
-    //   },
-    //   body: formData,
-    // })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     if (result.message === '판매상품_등록완료') {
-    //       alert('상품이 등록되었습니다!');
-    //       navigate('/');
-    //     } else if (result.message) {
-    //       alert(result.message);
-    //     }
-    //   })
-    //   .catch(error => console.error(error));
-    fetchData(formData);
+    fetch('http://10.58.52.191:3000/products', {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === '판매상품_등록완료') {
+          alert('상품이 등록되었습니다!');
+          navigate('/');
+        } else if (result.message) {
+          alert(result.message);
+        }
+      })
+      .catch(error => console.error(error));
+    // fetchData(formData);
   };
 
-  const fetchData = async formData => {
-    const data = await fetchApi(`${API.products}`, 'POST', formData, true);
-    if (data.message === '판매상품_등록완료') {
-      alert('상품이 등록되었습니다!');
-      navigate('/productdetail');
-    } else if (data.message) {
-      alert(data.message);
-    }
-  };
+  // const fetchData = async formData => {
+  //   const data = await fetchApi(`${API.products}`, 'POST', formData, true);
+  //   if (data.message === '판매상품_등록완료') {
+  //     alert('상품이 등록되었습니다!');
+  //     navigate('/productdetail');
+  //   } else if (data.message) {
+  //     alert(data.message);
+  //   }
+  // };
 
   return (
     <Container>
