@@ -14,20 +14,7 @@ const Card = ({ product, setOptValue, selectOpt }) => {
     text: isProductSoldout ? '판매 완료' : '예약중',
   };
 
-  const moveToDetail = () => {
-    fetch(`${API.products}/views/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('token'),
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log('views', data);
-        navigate(`/productDetail/${id}`);
-      });
-  };
+  const moveToDetail = () => {};
 
   return (
     <CardWrapper>

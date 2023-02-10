@@ -21,13 +21,11 @@ const ProductDetailTop = ({ productId }) => {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           setProductObj(data.productDetail[0]);
         });
     };
     productInfoFetch();
   }, []);
-  console.log(productObj);
 
   const moveToPayment = () =>
     navigate('/payment', {

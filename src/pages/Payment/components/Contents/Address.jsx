@@ -6,7 +6,6 @@ const Address = ({ payInfo, setPayInfo }) => {
   const handleChangeInput = e => {
     const newPayInfo = { ...payInfo };
     newPayInfo.address = e.target.value;
-    console.log(newPayInfo);
     setPayInfo(newPayInfo);
   };
 

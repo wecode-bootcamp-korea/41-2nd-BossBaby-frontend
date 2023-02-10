@@ -30,8 +30,6 @@ const Payment = () => {
   );
   const isLogin = !!localStorage.getItem('token');
 
-  console.log(productInfo);
-
   useEffect(() => {
     if (!isLogin) {
       alert('로그인 후 이용 가능합니다.');

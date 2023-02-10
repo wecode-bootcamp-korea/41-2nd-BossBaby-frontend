@@ -18,8 +18,6 @@ const MypageUserInfo = () => {
   const [userInfo, setUserInfo] = useState(initialState);
   const { name, description, profile_image, total_selling } = userInfo;
 
-  console.log(userInfo);
-
   useEffect(() => {
     fetch(`${API.mypage}/user/info`, {
       method: 'GET',

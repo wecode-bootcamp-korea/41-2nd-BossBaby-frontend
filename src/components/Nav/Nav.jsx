@@ -16,8 +16,9 @@ const Nav = () => {
   };
 
   useEffect(() => {
+    !isLogin && setTitle('로그인');
     isLogin && setTitle('마이페이지');
-  }, [isLogin]);
+  }, [isLogin, location.pathname]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

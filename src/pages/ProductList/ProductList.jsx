@@ -33,6 +33,10 @@ const ProductList = () => {
       });
   }, [queryString]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname, queryString]);
+
   // 페이지네이션
   const page = searchParams.get('page');
   const itemNumber = 12;

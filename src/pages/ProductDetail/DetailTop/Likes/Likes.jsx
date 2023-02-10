@@ -21,7 +21,6 @@ function Likes({ productObj, setProductObj }) {
         })
           .then(res => res.json())
           .then(data => {
-            console.log('aa', data);
             const newProductObj = { ...productObj };
             newProductObj.likeOrNot = likeOrNot === '0' ? '1' : '0';
             newProductObj.total_likes = data.likes;

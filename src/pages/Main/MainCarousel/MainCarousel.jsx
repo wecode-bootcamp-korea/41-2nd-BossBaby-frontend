@@ -119,7 +119,7 @@ const SecondSub = styled.p`
 const ThirdTitle = styled.p`
   position: absolute;
   top: 48%;
-  left: 27%;
+  left: 30%;
   color: white;
   text-align: center;
   font-size: 45px;

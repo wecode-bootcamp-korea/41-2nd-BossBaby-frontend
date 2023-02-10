@@ -21,8 +21,10 @@ const ProductSell = () => {
   const isLogin = !!localStorage.getItem('token');
 
   useEffect(() => {
-    !isLogin && alert('로그인이 필요합니다!');
-    // !isLogin && navigate('/');
+    if (!isLogin) {
+      alert('로그인이 필요합니다!');
+      navigate('/');
+    }
   }, []);
 
   const navigate = useNavigate();
@@ -69,7 +71,6 @@ const ProductSell = () => {
 
     let formData = new FormData();
     const newArr = Object.keys(sellList);
-    console.log(formData);
 
     imgList.forEach(file => formData.append('images', file));
     newArr.forEach(item =>

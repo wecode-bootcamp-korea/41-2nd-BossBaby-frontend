@@ -13,7 +13,6 @@ function Views({}) {
   useEffect(() => {
     const optionFetch = async () => {
       const data = await fetchApi(`${API.detail}/${productId}`);
-      console.log(data);
       setViews(data.productDetail[0]);
     };
     optionFetch();
