@@ -15,6 +15,7 @@ const Main = () => {
 
   const fetchData = async () => {
     const data = await fetchApi(`${API.products}/main/recommend`);
+    console.log(data);
     setRecommend(data);
   };
 

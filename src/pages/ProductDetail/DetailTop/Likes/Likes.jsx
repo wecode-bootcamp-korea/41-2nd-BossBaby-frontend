@@ -9,7 +9,7 @@ function Likes({ productObj, setProductObj }) {
   const likeHandler = () => {
     if (localStorage.getItem('token')) {
       if (likeOrNot === '0') {
-        fetch(`${API.likes}/${id}`, {
+        fetch(`${API.products}/likes/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
@@ -28,7 +28,7 @@ function Likes({ productObj, setProductObj }) {
             setProductObj(newProductObj);
           });
       } else if (likeOrNot === '1') {
-        fetch(`http://10.58.52.191:3000/products/likes/${id}`, {
+        fetch(`${API.products}/likes/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json;charset=utf-8',

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API, fetchApi } from '../../config';
 import { DESC_TXT, INPUT_DATA } from './SellData';
@@ -18,9 +18,12 @@ const ProductSell = () => {
     description: '',
   });
 
-  console.log(sellList);
-  console.log(photo);
-  console.log('files', imgList);
+  const isLogin = !!localStorage.getItem('token');
+
+  useEffect(() => {
+    !isLogin && alert('로그인이 필요합니다!');
+    // !isLogin && navigate('/');
+  }, []);
 
   const navigate = useNavigate();
   const imgPreview = useRef();

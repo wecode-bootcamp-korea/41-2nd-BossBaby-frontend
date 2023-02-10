@@ -24,7 +24,7 @@ const Card = ({ product, setOptValue, selectOpt }) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log('views', data);
         navigate(`/productDetail/${id}`);
       });
   };

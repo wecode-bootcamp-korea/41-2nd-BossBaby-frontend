@@ -16,8 +16,7 @@ const ProductDetailTop = ({ productId }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
+          authorization: localStorage.getItem('token'),
         },
       })
         .then(res => res.json())
@@ -147,7 +146,7 @@ const ContentTopWrap = styled.div`
 const LeftContent = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 50%;
   align-items: flex-end;
 `;
 
@@ -155,7 +154,7 @@ const DivWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 220px;
+  width: 100%;
 
   .categoryName {
   }
