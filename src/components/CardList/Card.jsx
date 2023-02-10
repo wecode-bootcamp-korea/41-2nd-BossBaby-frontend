@@ -14,7 +14,9 @@ const Card = ({ product, setOptValue, selectOpt }) => {
     text: isProductSoldout ? '판매 완료' : '예약중',
   };
 
-  const moveToDetail = () => {};
+  const moveToDetail = () => {
+    navigate(`/productDetail/${id}`);
+  };
 
   return (
     <CardWrapper>
