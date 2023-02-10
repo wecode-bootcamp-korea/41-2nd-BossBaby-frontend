@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Login from '../../pages/Login/Login';
 
 const Nav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState('로그인');
   const [input, setInput] = useState('');
@@ -17,6 +18,10 @@ const Nav = () => {
   useEffect(() => {
     isLogin && setTitle('마이페이지');
   }, [isLogin]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   function handleInput(e) {
     setInput(e.target.value);

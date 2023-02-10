@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { API } from '../../config';
 import ProductCard from './Card';
 
 const List = ({ url, column, selectOpt }) => {
@@ -24,14 +25,14 @@ const List = ({ url, column, selectOpt }) => {
   const setOptValue = (selectedStatus, productId) => {
     console.log('상태변경실행!', selectedStatus, productId);
 
-    fetch('productStatus Change Url', {
+    fetch(`${API.mypage}/status`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        productId: 0,
+        productId,
         status: selectedStatus,
       }),
     })
@@ -55,7 +56,7 @@ const List = ({ url, column, selectOpt }) => {
 
   return (
     <ListWrapper column={column}>
-      {products.length > 0 &&
+      {products.length > 0 ? (
         products.map(product => {
           return (
             <ProductCard
@@ -65,7 +66,10 @@ const List = ({ url, column, selectOpt }) => {
               setOptValue={setOptValue}
             />
           );
-        })}
+        })
+      ) : (
+        <p>리스트가 존재하지 않습니다.</p>
+      )}
     </ListWrapper>
   );
 };

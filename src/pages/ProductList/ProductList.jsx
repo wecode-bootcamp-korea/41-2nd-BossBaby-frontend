@@ -81,7 +81,7 @@ const ProductList = () => {
       </ProductBox>
       <PageNationBox>
         <PageNationList>
-          <PageLNarrow to="/" />
+          <PageLNarrow to="#none" />
           {pageArr.map((num, i) => {
             const offsetNum = i * 12;
             const limitNum = (i + 1) * 12;
@@ -95,7 +95,7 @@ const ProductList = () => {
               </PageNationLink>
             );
           })}
-          <PageRNarrow to="/" />
+          <PageRNarrow to="#none" />
         </PageNationList>
       </PageNationBox>
     </ProductListWrapper>

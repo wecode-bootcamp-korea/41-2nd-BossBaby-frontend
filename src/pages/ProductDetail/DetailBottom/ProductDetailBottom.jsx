@@ -44,7 +44,7 @@ function ProductDetailBottom({ productId }) {
               alt="유저 이미지"
               size="54px"
             />
-            <ProfileName>{sellerInfos.nickname}</ProfileName>
+            <ProfileName>{sellerInfos.name}</ProfileName>
           </ProfileWrap>
         )}
       </SellerInfoWrap>

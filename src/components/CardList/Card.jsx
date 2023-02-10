@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { API } from '../../config';
 import SelectOpt from './SelectOpt';
 
 const Card = ({ product, setOptValue, selectOpt }) => {
+  const navigate = useNavigate();
   const { id, title, thumbnail_img, price, status } = product;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
@@ -12,9 +14,24 @@ const Card = ({ product, setOptValue, selectOpt }) => {
     text: isProductSoldout ? '판매 완료' : '예약중',
   };
 
+  const moveToDetail = () => {
+    fetch(`${API.products}/views/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        navigate(`/productDetail/${id}`);
+      });
+  };
+
   return (
     <CardWrapper>
-      <CardLink to={`/productDetail/${id}`}>
+      <CardButton onClick={moveToDetail}>
         <ImgWrapper>
           <ProductImg src={thumbnail_img} alt="product" />
           {isProductSoldout && <Dimd />}
@@ -24,16 +41,16 @@ const Card = ({ product, setOptValue, selectOpt }) => {
             </ProductStatus>
           )}
         </ImgWrapper>
-        <Name>{title}</Name>
-        <Price>{parseInt(price).toLocaleString()}원</Price>
-        {selectOpt && (
-          <SelectOpt
-            productId={product.id}
-            status={status}
-            setOptValue={setOptValue}
-          />
-        )}
-      </CardLink>
+      </CardButton>
+      <Name>{title}</Name>
+      <Price>{parseInt(price).toLocaleString()}원</Price>
+      {selectOpt && (
+        <SelectOpt
+          productId={product.id}
+          status={status}
+          setOptValue={setOptValue}
+        />
+      )}
     </CardWrapper>
   );
 };
@@ -44,8 +61,14 @@ const CardWrapper = styled.div`
   position: relative;
 `;
 
-const CardLink = styled(Link)`
-  text-decoration: none;
+const CardButton = styled.button`
+  width: 100%;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 `;
 
 const ImgWrapper = styled.div`

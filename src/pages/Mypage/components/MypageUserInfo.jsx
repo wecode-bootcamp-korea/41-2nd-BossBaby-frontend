@@ -49,7 +49,13 @@ const MypageUserInfo = () => {
       />
       <InfoContents>
         <Title title={name} fontSize="26px" />
-        <Text text={description} />
+        <Text
+          text={
+            description === null
+              ? `안녕하세요 저는 ${name}입니다.`
+              : description
+          }
+        />
         <Text text={`판매 상품 : ${total_selling}개`} color="#B8A990" />
       </InfoContents>
       <ButtonWrap>
