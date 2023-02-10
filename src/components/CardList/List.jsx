@@ -23,8 +23,6 @@ const List = ({ url, column, selectOpt }) => {
   }, [url]);
 
   const setOptValue = (selectedStatus, productId) => {
-    console.log('상태변경실행!', selectedStatus, productId);
-
     fetch(`${API.mypage}/status`, {
       method: 'PUT',
       headers: {

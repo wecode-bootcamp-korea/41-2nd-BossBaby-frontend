@@ -77,7 +77,7 @@ const ProductSell = () => {
       formData.append(item, JSON.stringify(sellList[item]))
     );
 
-    fetch('http://10.58.52.191:3000/products', {
+    fetch(`${API.products}`, {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('token'),
