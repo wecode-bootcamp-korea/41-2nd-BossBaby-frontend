@@ -10,31 +10,48 @@
 
 1. [**서비스 소개**](#1)
 2. [**기술 스택**](#2)
-3. [**시스템 아키텍처**](#3)
-4. [**주요기능 및 데모영상**](#4)
+3. [**주요기능 데모영상**](#3)
+4. [**주요기능 설명**](#4)
 5. [**협업 관리**](#5)
 6. [**Team Boss Baby**](#6)
-7. [**개발 멤버 소개**](#7)
-8. [**프로젝트 기간**](#8)
+7. [**프로젝트 기간**](#7)
 
 <br/>
 
 <div id="1"></div>
 
-## 💡 서비스 소개
+# 💡 서비스 소개
 
 > 베이비 사이트는 육아용품만 전문으로 취급하는 중고 시장 플랫폼입니다. <br />
 > 육아용품 시장 규모가 2020년 기준 약 4조원대로 역대 최고 수준을 경신했습니다. <br />
 > 하지만 중고 육아용품 구매의 최대 단점은 아이들의 사용 시기가 지나면 아무리 깨끗하게 쓴 제품이라도 더 사용하지 못한다는 점이었고, 이러한 단점을 보완하여 세척기능을 제공해주는 온라인 플랫폼 베이비가 탄생했습니다.
 
-<br/>
+<br/><br />
 
 <div id="2"></div>
 
-## 🛠️ 기술 스택
+# 🛠️ 기술 스택 및 ERD
 
-- FrontEnd: Javascript, React, Styled-Components
-- BackEnd: Node.js, Express, TypeORM, MySQL <br />
+|                                                                    ERD                                                                    |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014954-f4896980-a6af-40e0-8026-96b1fb585325.png" alt="main" width="700"/> |
+
+### FRONTEND
+
+|                                             JavaScript                                             |                                                 React                                                 |                               Styled</br>Component                                |                                                 esLint                                                 |                                                 Prettier                                                 |
+| :------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: |
+| <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://styled-components.com/logo.png" width="65" height="65" /></div> | <img src="https://techstack-generator.vercel.app/eslint-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/prettier-icon.svg" alt="icon" width="65" height="65" /> |
+
+</br>
+
+### BACKEND
+
+|                                             JavaScript                                             |                                                Nodejs                                                 |                                                 MySql                                                 |                                                  Rest                                                   |
+| :------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: |
+| <img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="65" height="65" /> | <img src="https://techstack-generator.vercel.app/restapi-icon.svg" alt="icon" width="65" height="65" /> |
+
+</br>
+  <br />
 
 <details><summary> <b> 상세 기술스택 및 버전</b> </summary>
 
@@ -57,107 +74,182 @@
 | Server   | 서버            | AWS EC2            | \-     |
 
 </details>
+<br/>
 
-<br />
+<br /><br />
 
 <div id="3"></div>
 
-## 🖥️ 주요기능
+# 🖥️ 주요기능 데모영상
 
-### 1. 로그인
+|                                                           카카오톡 로그인 기능                                                            |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014814-fb8d91b0-9866-4b4a-93ca-950ed729e0f0.gif" alt="main" width="500"/> |
 
-|                  카카오톡 로그인 기능                  |
-| :----------------------------------------------------: |
-| <img src="./public/images/kakaoIcon.png" alt="main" /> |
+|                                                                메인페이지                                                                 |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014848-b0d794f5-0c43-47e3-9867-48d2cd9bff82.gif" alt="main" width="500"/> |
 
-### 2. 메인 페이지
+|                                                            상품 리스트 페이지                                                             |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014859-a55acf77-68fa-47c4-8812-1ba7956d43a4.gif" alt="main" width="500"/> |
 
-|                        메인페이지                         |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+|                                                             상품 상세 페이지                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014865-33d1b678-6bac-44c8-90b3-44b52b6e4c7d.gif" alt="main" width="500"/> |
 
-### 3. 상품 리스트 페이지
+|                                                              판매하기 페이지                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014862-a9067853-6bd2-4a71-9e87-3b755a7796ed.gif" alt="main" width="500"/> |
 
-|                    상품 리스트 페이지                     |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+|                                                                마이페이지                                                                 |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014869-c2113f28-d43e-42c8-8bac-37b08e6e1536.gif" alt="main" width="500"/> |
 
-### 4. 상세 페이지
-
-|                        상품 페이지                        |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
-
-### 5. 판매하기 페이지
-
-|                         판매하기                          |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
-
-### 6. 마이페이지
-
-|                         판매하기                          |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
-
-### 7. 톡 기능
-
-|                         판매하기                          |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+|              결제페이지              |
+| :----------------------------------: |
+| <img src="" alt="main" width="500"/> |
 
 <br/>
 
 <div id="4"></div>
 
-## 👥 협업 관리
+# 🖥️ 주요기능 설명
 
-### Figma
+## [ FRONTEND ]
 
-|                           Figma                           |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+### 1. 로그인 (회원가입 & 카카오 로그인)
 
-### trello
+- 카카오 서버에 요청하여 인가코드를 받아온 후, 백엔드에게 전달
 
-|                           Figma                           |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+### 2. 메인 페이지 (슬라이더, 추천 상품 리스트, 오늘 입고된 상품리스트)
 
-### Notion
+- 캐러셀 기능으로 사이트의 핵심 이미지를 보여줌
+- 추천 상품 리스트가 출력되어 좋아요가 많은 인기 상품을 출력
+- 실시간으로 올라오는 중고상품을 메인페이지에서 확인
 
-|                           Figma                           |
-| :-------------------------------------------------------: |
-| <img src="./public/images/Main/banner1.jpg" alt="main" /> |
+### 3. 상품 리스트 페이지 (카테고리 이동, 최신순/인기순 정렬)
+
+- Nav에 있는 카테고리를 클릭하게 되면 상품리스트 페이지로 연결
+- 상품 리스트의 최신순/인기순/저가순/고가순 필터를 이용하여 상품들을 정렬
+
+### 4. 상품 상세 페이지 (주문하기, 베비톡 이동, 상세정보, 상품후기, 평점)
+
+- 한 상품에 대한 상세 정보, 등록 날짜, 조회수, 좋아요 수 출력
+- 로그인 된 유저는 해당 상품를 좋아요, 좋아요 취소 가능
+- 해당 상품을 판매자에 대한 정보 출력
+
+### 5. 판매하기 페이지 (상품 등록)
+
+- 판매페이지를 누구나 사용하기 쉽게 구성
+
+### 6. 마이페이지
+
+- 회원인 유저가 카카오 로그인시 가져오는 정보를 화면에 출력
+- ‘찜 목록’ → 유저가 좋아요 버튼을 누른 상품들을 모아서 출력
+- ‘판매 목록’ → 유저가 판매하기 등록한 상품들 출력
+- 판매 상품의 상태를 ‘판매중’, ‘예약중’, ‘예약완료’로 변경 가능
+
+### 7. 결제 페이지
+
+- 상품 상세 페이지에서 넘어온 상품
+
+### 8. Nav
+
+- LocalStorage의 token의 유무에 따라서 로그인 / 마이페이지 버튼 변경 후 출력
+- 검색창에 검색어를 입력한 뒤 Enter를 누르면 쿼리스트링에 검색값을 전달해주어 상품리스트에 출력
 
 <br />
 
+## [ BACKEND ]
+
+### 1. 회원가입 & 로그인(카카오 로그인)
+
+- 프론트엔드에서 보내준 인가 코드로 JWT 토큰을 발급
+- 발급 받은 토큰을 통해 사용자 정보 조회
+- 신규 사용자인 경우, 회원 가입 처리 후 로그인 완료
+
+### 2. 메인 페이지(추천 상품 리스트, 오늘 입고된 상품 리스트)
+
+- 상품별 좋아요 순으로 상품 리스트 3개 나열
+- 상품이 등록된 시간 순으로 12개 나열
+
+### 3. 상품 리스트 페이지 (카테고리 이동, 최신순/인기순/저가순/고가순 정렬)
+
+- 카테고리 값을 받아 상품 테이블에 sub_category_id를 조회 후 리스트 반환
+- 정렬할 조건을 받아 상품 리스트를 최신순/인기순/저가순/고가순으로 정렬
+
+### 4. 상품 검색
+
+- 상품 게시글 제목에 포함된 문자열을 검색 후 상품 리스트 조회
+
+### 5. 상품 상세 페이지 조회
+
+- 토큰 값을 통해 유저가 해당 상품 좋아요 여부 구분
+- 토큰 값이 없을시 좋아요 버튼 비활성화
+- 상품 아이디를 전달받아 해당 상품 정보 조회
+- 상품 조회수, 좋아요수 조회
+
+### 6. 상품 조회수 업데이트
+
+- 상품 클릭시 해당 상품 조회수 업데이트
+
+### 7. 상품 좋아요 수 업데이트
+
+- 상품 상세페이지 좋아요 버튼 클릭시 좋아요 테이블 및 좋아요수 업데이트
+- 좋아요 버튼 재클릭시 좋아요 테이블 정보 삭제 및 좋아요수 업데이트
+
+### 8. 마이페이지(유저 정보 조회, 유저 좋아요 목록 조회, 셀러 판매 목록 조회, 셀러 리뷰 조회)
+
+- 토큰 값을 통해 해당 유저 정보 조회
+- 해당 유저 좋아요 목록 조회
+- 해당 셀러 판매 목록 조회
+- 해당 셀러 리뷰 조회
+
+### 9. 결제 페이지
+
+- user_id, 입력된 주소(address)와 상품 가격 + 세척비(total_price), 상품 상태(Order_Done)로 주문을 입력
+- totalprice만큼 user 포인트를 차감 후, 주문 완료
+
+<br/>
+
 <div id="5"></div>
 
-## 👶🏻 Team Boss Baby
+# 👥 협업 관리
 
-<table>
-    <tr>
-        <td height="auto" align="center"> <a href="https://github.com/sangheon-k"> 🙂 김상헌 <br>(Front-End)</a></td>
-        <td height="auto" align="center"> <a href="https://github.com/jhjhjh01000"> 🙂 김지환 <br>(Front-End)</a></td>
-        <td height="auto" align="center"> <a href="https://github.com/sally-dot"> 🙂 이다혜 <br>(Front-End) </a></td>
-        <td height="auto" align="center"> <a href="https://github.com/Jeong-Dagyeong"> 🙂 정다경 <br>(Front-End) </a> <br></td>
-        <td height="auto" align="center"> <a href="https://github.com/pythakyu"> 🙂 김동규 <br>(Back-End) </a></td>
-        <td height="auto" align="center"> <a href="https://github.com/yeyunny"> 🙂 심예윤 <br>(Back-End) </a></td>
-    </tr>
-    <tr>
-        <td align="center">Mypage<br/>Payment<br/>BaBeeTalk</td>
-        <td align="center">Login<br/>ProductDetail</td>
-        <td align="center">Main<br/>ProductSell</td>
-        <td align="center">Nav<br/>Footer<br/>ProductList</td>
-        <td align="center">Login<br/>Payment</td>
-        <td align="center">Product<br/>Mypage</td>
-    </tr>
-</table>
+### Figma
+
+|                                                                   Figma                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014959-a1bcb54e-ae5b-45dd-9599-1c0ff894bba5.png" alt="main" width="500"/> |
+
+### trello
+
+|                                                                  Trello                                                                   |
+| :---------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/75000708/218014972-2e957566-462f-47b8-a4da-976296469fd2.png" alt="main" width="500"/> |
 
 <br />
 
 <div id="6"></div>
+
+# 👶🏻 Team Boss Baby
+
+### Front-End Developsers
+
+|                                                               김상헌 (FE)                                                                |                                                                김지환 (FE)                                                                |                                                               이다혜 (FE)                                                               |                                                                 정다경 (FE)                                                                  |
+| :--------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/sangheon-k) | [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/jhjhjh01000) | [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/sally-dot) | [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/Jeong-Dagyeong) |
+
+### Back-End Developers
+
+|                                                              김동규 (BE)                                                               |                                                              심예윤 (BE)                                                              |
+| :------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/pythakyu) | [<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>](https://github.com/yeyunny) |
+
+<br />
+
+<div id="7"></div>
 
 ## 🗓 프로젝트 기간
 
