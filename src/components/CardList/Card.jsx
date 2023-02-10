@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { API } from '../../config';
 import SelectOpt from './SelectOpt';
 
 const Card = ({ product, setOptValue, selectOpt }) => {
-  const { title, thumbnail_img, price, status } = product;
+  const navigate = useNavigate();
+  const { id, title, thumbnail_img, price, status } = product;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
   const statusOption = {
@@ -11,17 +14,21 @@ const Card = ({ product, setOptValue, selectOpt }) => {
     text: isProductSoldout ? '판매 완료' : '예약중',
   };
 
+  const moveToDetail = () => {};
+
   return (
     <CardWrapper>
-      <ImgWrapper>
-        <ProductImg src={thumbnail_img} alt="product" />
-        {isProductSoldout && <Dimd />}
-        {!isProductSelling && (
-          <ProductStatus bgColor={statusOption.bgColor}>
-            {statusOption.text}
-          </ProductStatus>
-        )}
-      </ImgWrapper>
+      <CardButton onClick={moveToDetail}>
+        <ImgWrapper>
+          <ProductImg src={thumbnail_img} alt="product" />
+          {isProductSoldout && <Dimd />}
+          {!isProductSelling && (
+            <ProductStatus bgColor={statusOption.bgColor}>
+              {statusOption.text}
+            </ProductStatus>
+          )}
+        </ImgWrapper>
+      </CardButton>
       <Name>{title}</Name>
       <Price>{parseInt(price).toLocaleString()}원</Price>
       {selectOpt && (
@@ -39,6 +46,16 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+`;
+
+const CardButton = styled.button`
+  width: 100%;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
 `;
 
 const ImgWrapper = styled.div`
@@ -81,9 +98,13 @@ const ProductStatus = styled.div`
 `;
 
 const Name = styled.div`
-  margin: 10px 5px 5px;
+  overflow: hidden;
+  width: 200px;
+  margin: 15px 5px 9px;
   font-size: 16px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Price = styled.div`

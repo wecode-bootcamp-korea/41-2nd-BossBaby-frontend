@@ -7,6 +7,7 @@ import { API } from '../../../config';
 
 function ProductDetailBottom({ productId }) {
   const [sellerInfos, setSellerInfos] = useState({});
+  const [detailInfo, setDetailInfo] = useState({});
 
   useEffect(() => {
     const productInfoFetch = async () => {
@@ -17,12 +18,23 @@ function ProductDetailBottom({ productId }) {
     productInfoFetch();
   }, []);
 
+  useEffect(() => {
+    const productDetailFetch = async () => {
+      const data = await fetchApi(`${API.detail}/${productId}`);
+
+      setDetailInfo(data.productDetail[0]);
+    };
+    productDetailFetch();
+  }, [productId]);
+
   return (
     <Container>
-      <ProductInfoWrap>
-        <ProductInfoTitle>상품 정보</ProductInfoTitle>
-        {sellerInfos && <ProductInfo>{sellerInfos.description}</ProductInfo>}
-      </ProductInfoWrap>
+      {detailInfo && (
+        <ProductInfoWrap>
+          <ProductInfoTitle>상품 정보</ProductInfoTitle>
+          {sellerInfos && <ProductInfo>{detailInfo.description}</ProductInfo>}
+        </ProductInfoWrap>
+      )}
       <SellerInfoWrap>
         <SellerInfo>판매자 정보</SellerInfo>
         {sellerInfos && (
@@ -32,7 +44,7 @@ function ProductDetailBottom({ productId }) {
               alt="유저 이미지"
               size="54px"
             />
-            <ProfileName>{sellerInfos.nickname}</ProfileName>
+            <ProfileName>{sellerInfos.name}</ProfileName>
           </ProfileWrap>
         )}
       </SellerInfoWrap>

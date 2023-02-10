@@ -20,7 +20,7 @@ const Login = ({ setIsModalOpen }) => {
     <Container onClick={closeModal}>
       <Wrapper onClick={e => e.stopPropagation()}>
         <CloseButton onClick={closeModal}>
-          <CloseImage src="/images/close.png" alt="로그인창 닫기" />
+          <CloseImage src="/images/Login/close.png" alt="로그인창 닫기" />
         </CloseButton>
         <LoginContentWrap>
           <Section>
@@ -29,7 +29,7 @@ const Login = ({ setIsModalOpen }) => {
             <Describtion>간편하게 가입하고 상품을 확인하세요</Describtion>
           </Section>
           <KakaoWrap onClick={handleLogin}>
-            <KakaoIcon src="/images/kakaoIcon.png" />
+            <KakaoIcon src="/images/Login/kakaoIcon.png" />
             <KakaoText>카카오로 이용하기</KakaoText>
           </KakaoWrap>
           <FooterWrap>

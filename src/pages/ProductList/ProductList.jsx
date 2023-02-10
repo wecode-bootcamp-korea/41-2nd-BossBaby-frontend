@@ -24,7 +24,7 @@ const ProductList = () => {
   useEffect(() => {
     // totalNum 받는 fetch
     queryString === '' &&
-      navigate('/productlist?subCategory=inner&sort=recent&offset=0&limit=12');
+      navigate('/productlist?subCategory=INNER&sort=RECENT&offset=0&limit=12');
 
     fetch(`${API.products}/count?subCategory=${subCategory}`)
       .then(result => result.json())
@@ -32,6 +32,10 @@ const ProductList = () => {
         setTotalNum(Number(data[0].total));
       });
   }, [queryString]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname, queryString]);
 
   // 페이지네이션
   const page = searchParams.get('page');
@@ -44,8 +48,8 @@ const ProductList = () => {
 
   const offset = searchParams.get('offset') || '0';
   const limit = searchParams.get('limit') || '12';
-  const subCategory = searchParams.get('subCategory') || 'inner';
-  const sort = searchParams.get('sort') || 'recent';
+  const subCategory = searchParams.get('subCategory') || 'INNER';
+  const sort = searchParams.get('sort') || 'RECENT';
 
   const movePage = pageNumber => {
     searchParams.set('offset', (pageNumber - 1) * 10);
@@ -81,9 +85,9 @@ const ProductList = () => {
       </ProductBox>
       <PageNationBox>
         <PageNationList>
-          <PageLNarrow to="/" />
+          <PageLNarrow to="#none" />
           {pageArr.map((num, i) => {
-            const offsetNum = i === 0 ? 0 : i * 12 + 1;
+            const offsetNum = i * 12;
             const limitNum = (i + 1) * 12;
             return (
               <PageNationLink
@@ -95,7 +99,7 @@ const ProductList = () => {
               </PageNationLink>
             );
           })}
-          <PageRNarrow to="/" />
+          <PageRNarrow to="#none" />
         </PageNationList>
       </PageNationBox>
     </ProductListWrapper>
@@ -105,7 +109,7 @@ const ProductList = () => {
 const ProductListWrapper = styled.div`
   width: 1020px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 60px 10px;
 `;
 
 const CateBox = styled.div`
@@ -214,18 +218,18 @@ const PageNationLink = styled(Link)`
 export default ProductList;
 
 const CATEGORY_SORT = [
-  { id: 1, title: '최신순', sort: 'recent' },
-  { id: 2, title: '인기순', sort: 'favorite' },
-  { id: 3, title: '저가순', sort: 'price_asc' },
-  { id: 4, title: '고가순', sort: 'price_dsc' },
+  { id: 1, title: '최신순', sort: 'RECENT' },
+  { id: 2, title: '인기순', sort: 'FAVORITE' },
+  { id: 3, title: '저가순', sort: 'PRICE_ASC' },
+  { id: 4, title: '고가순', sort: 'PRICE_DSC' },
 ];
 
 const MAPPING_TITLE = {
-  inner: '내의/속옷',
-  topbottom: '상의/하의',
-  onepiece: '원피스',
-  shoes: '신발',
-  accessory: '악세사리',
-  bedding: '이불/침구',
-  toy: '인형/모빌',
+  INNER: '내의/속옷',
+  TOP_BOTTOM: '상의/하의',
+  ONE_PIECE: '원피스',
+  SHOES: '신발',
+  ACCESSORY: '악세사리',
+  BEDDING: '이불/침구',
+  TOY: '인형/모빌',
 };

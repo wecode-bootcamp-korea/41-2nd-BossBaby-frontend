@@ -16,19 +16,16 @@ const ProductDetailTop = ({ productId }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsiaWQiOjN9LCJpYXQiOjE2NzU5MDkzNzB9.I7aqL2ZAFGO9iBwmzOlDly0ZRCNd7rERJIfkS1Zt4pQ',
+          authorization: localStorage.getItem('token'),
         },
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           setProductObj(data.productDetail[0]);
         });
     };
     productInfoFetch();
   }, []);
-  console.log(productObj);
 
   const moveToPayment = () =>
     navigate('/payment', {
@@ -51,6 +48,9 @@ const ProductDetailTop = ({ productId }) => {
   };
 
   const handleBabeeTalk = () => {
+    alert('오픈 준비중입니다!');
+    return;
+
     localStorage.getItem('token')
       ? moveTotalk()
       : alert('로그인 후 이용해주세요');
@@ -68,8 +68,12 @@ const ProductDetailTop = ({ productId }) => {
                   <div className="categoryName">
                     {productObj.sub_categories}
                   </div>
-                  <div className="productName">{productObj.title}</div>
-                  <div className="price">{productObj.price}원</div>
+                  <div className="productName">
+                    {productObj.title.replaceAll('"', '')}
+                  </div>
+                  <div className="price">
+                    {parseInt(productObj.price).toLocaleString()}원
+                  </div>
                 </DivWrap>
 
                 {productObj.status === 'pending' ? (
@@ -79,13 +83,7 @@ const ProductDetailTop = ({ productId }) => {
                 ) : null}
               </LeftContent>
               <RightContent>
-                <Likes
-                  // total_likes={productObj.total_likes}
-                  // productid={productObj.id}
-                  // likeOrNot={productObj.likeOrNot}
-                  productObj={productObj}
-                  setProductObj={setProductObj}
-                />
+                <Likes productObj={productObj} setProductObj={setProductObj} />
               </RightContent>
             </ContentTopWrap>
             <ContentBottomWrap>
@@ -146,7 +144,7 @@ const ContentTopWrap = styled.div`
 const LeftContent = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 35%;
+  width: 50%;
   align-items: flex-end;
 `;
 
@@ -154,7 +152,7 @@ const DivWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 220px;
+  width: 100%;
 
   .categoryName {
   }

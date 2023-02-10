@@ -1,40 +1,70 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from 'react-icons/hi';
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 const Carousel = ({ images }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    pauseOnHover: true,
+    prevArrow: (
+      <ImageLeftButton>
+        <HiOutlineChevronLeft size="30" color="black" />
+      </ImageLeftButton>
+    ),
+    nextArrow: (
+      <ImageRightButton>
+        <HiOutlineChevronRight size="30" color="black" />
+      </ImageRightButton>
+    ),
+  };
   return (
     <ProductImageWrapper>
-      <ImageDiv>
-        <ProductImages src={images[0]} alt="thumb" />
-        <ImageLeftButton>
-          <HiOutlineChevronLeft size="30" />
-        </ImageLeftButton>
-        <ImageRightButton>
-          <HiOutlineChevronRight size="30" />
-        </ImageRightButton>
-      </ImageDiv>
+      <StyledSlider {...settings}>
+        {images.map((item, index) => {
+          return (
+            <ImageDiv key={index}>
+              <ProductImages src={`${item}`} alt="thumb" />
+            </ImageDiv>
+          );
+        })}
+      </StyledSlider>
     </ProductImageWrapper>
   );
 };
 export default Carousel;
-
 const ProductImageWrapper = styled.div`
   width: 430px;
   height: 430px;
   margin-right: 30px;
 `;
-
-const ImageDiv = styled.div`
-  width: 100%;
+const StyledSlider = styled(Slider)`
+  position: relative;
   height: 100%;
+  width: 100%;
+  .slick-prev::before,
+  .slick-next::before {
+    display: none;
+    opacity: 0;
+  }
+  .slick-slide div {
+    outline: none;
+  }
+`;
+const ImageDiv = styled.div`
   position: relative;
 `;
+
 const ProductImages = styled.img`
   width: 100%;
-  height: 100%;
+  height: 430px;
+  object-fit: cover;
 `;
-
 const ImageRightButton = styled.button`
   position: absolute;
   top: 50%;
@@ -44,11 +74,8 @@ const ImageRightButton = styled.button`
   background-color: transparent;
   font-weight: 500;
   cursor: pointer;
-  &:hover {
-    color: #d9d9d9;
-  }
+  z-index: 10;
 `;
-
 const ImageLeftButton = styled.button`
   position: absolute;
   top: 50%;
@@ -57,9 +84,5 @@ const ImageLeftButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  &:hover {
-    color: #d9d9d9;
-  }
+  z-index: 10;
 `;
-
-const Img = styled.img``;

@@ -3,25 +3,27 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { TAB_LIST, TAB_MAPPING_TITLE, TAB_MAPPING_OBJ } from '../uidata';
 import Title from './Common/Title';
+import { API } from '../../../config';
 
 const MypageContents = () => {
   const location = useLocation();
-  const url = location.pathname.split('/').pop();
+  const pathname = location.pathname.split('/').pop();
+  const url = `${API.mypage}/${pathname}` || `${API.mypage}/reviews`;
 
   return (
     <Container>
       <Aside>
         <TabMenu>
           {TAB_LIST.map(tab => (
-            <Tab key={tab.id} to={tab.url}>
+            <Tab key={tab.id} to={tab.pathname}>
               {tab.title}
             </Tab>
           ))}
         </TabMenu>
       </Aside>
       <Contents>
-        <Title title={TAB_MAPPING_TITLE[url]} />
-        {TAB_MAPPING_OBJ[url]}
+        <Title title={TAB_MAPPING_TITLE[pathname]} />
+        {TAB_MAPPING_OBJ[pathname] && TAB_MAPPING_OBJ[pathname](url)}
       </Contents>
     </Container>
   );
@@ -30,6 +32,7 @@ const MypageContents = () => {
 const Container = styled.div`
   display: flex;
   padding-top: 56px;
+  padding-bottom: 200px;
 `;
 
 const Aside = styled.aside`

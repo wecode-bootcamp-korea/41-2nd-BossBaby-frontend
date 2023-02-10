@@ -45,13 +45,13 @@ const SelectResult = styled.p`
 
 export const CATEGORY_LIST = [
   { id: 0, value: 'subCategoryId', title: '카테고리를 선택해주세요' },
-  { id: 1, value: 'inner', title: '내의/속옷' },
-  { id: 2, value: 'topbottom', title: '상의/하의' },
-  { id: 3, value: 'onpiece', title: '원피스' },
-  { id: 4, value: 'shoes', title: '신발' },
-  { id: 5, value: 'accessory', title: '악세사리' },
-  { id: 6, value: 'bedding', title: '이불/침구' },
-  { id: 7, value: 'toy', title: '인형/모빌' },
+  { id: 1, value: 'INNER', title: '내의/속옷' },
+  { id: 2, value: 'TOP_BOTTOM', title: '상의/하의' },
+  { id: 3, value: 'ONE_PIECE', title: '원피스' },
+  { id: 4, value: 'SHOES', title: '신발' },
+  { id: 5, value: 'ACCESSORY', title: '악세사리' },
+  { id: 6, value: 'BEDDING', title: '이불/침구' },
+  { id: 7, value: 'TOY', title: '인형/모빌' },
 ];
 
 const CATEGORY_TITLE = {

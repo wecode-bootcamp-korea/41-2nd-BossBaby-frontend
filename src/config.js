@@ -9,6 +9,7 @@ export const API = {
   signup: `${process.env.REACT_APP_BASE_URL}/signup`,
   products: `${process.env.REACT_APP_BASE_URL}/products`,
   orders: `${process.env.REACT_APP_BASE_URL}/orders`,
+  mypage: `${process.env.REACT_APP_BASE_URL}/mypage`,
 };
 
 export const fetchApi = async (url, method = 'GET', fetchData, auth) => {

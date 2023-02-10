@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const RecommendList = ({ item }) => {
-  const { title, price, status, thumbnail_img } = item;
+  const { id, title, price, status, thumbnail_img } = item;
   const isProductSoldout = status === 'soldout';
   const isProductSelling = status === 'selling';
   const statusOption = {
@@ -12,15 +13,17 @@ const RecommendList = ({ item }) => {
 
   return (
     <CardWrapper>
-      <ImgWrapper>
-        <ProductImg src={thumbnail_img} alt="product" />
-        {isProductSoldout && <Dimd />}
-        {!isProductSelling && (
-          <ProductStatus bgColor={statusOption.bgColor}>
-            {statusOption.text}
-          </ProductStatus>
-        )}
-      </ImgWrapper>
+      <CardLink to={`/productDetail/${id}`}>
+        <ImgWrapper>
+          <ProductImg src={thumbnail_img} alt="product" />
+          {isProductSoldout && <Dimd />}
+          {!isProductSelling && (
+            <ProductStatus bgColor={statusOption.bgColor}>
+              {statusOption.text}
+            </ProductStatus>
+          )}
+        </ImgWrapper>
+      </CardLink>
       <Name>{title}</Name>
       <Price>{parseInt(price).toLocaleString()}원</Price>
     </CardWrapper>
@@ -33,6 +36,10 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+`;
+
+const CardLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const ImgWrapper = styled.div`

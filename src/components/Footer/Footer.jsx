@@ -60,7 +60,7 @@ const Footer = () => {
               <Divide>|</Divide>
               <FooterSpan>김동규, 김상헌</FooterSpan>
               <Divide>|</Divide>
-              <spaFooterSpann>123-45-67890</spaFooterSpann>
+              <FooterSpan>123-45-67890</FooterSpan>
               <FooterP>
                 서울특별시 강남구 삼성동 143-40 위워크타워 앞 어딘가
               </FooterP>
@@ -112,7 +112,6 @@ const Footer = () => {
 };
 
 const FooterWrapper = styled.div`
-  position: sticky;
   width: 100%;
   height: 700px;
   display: flex;
@@ -151,14 +150,15 @@ const FooterListSpan = styled.span`
 `;
 
 const FooterSpan = styled.span`
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: -0.5px;
   text-align: center;
 `;
 
 const FooterP = styled.p`
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: -0.5px;
+  line-height: 1;
 `;
 
 const FooterMainWrapper = styled.div`
@@ -166,6 +166,7 @@ const FooterMainWrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   margin-top: 20px;
+  padding: 20px 0;
 `;
 
 const FooterMainBoxRight = styled.div`
@@ -177,13 +178,12 @@ const FooterMainBoxLeft = styled.div`
 `;
 
 const FooterTitle = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 10px;
 `;
 
 const RightBox = styled.div`
-  /* margin-bottom: 10px; */
+  /* height: 20px; */
 `;
 
 const Divide = styled.span`
@@ -197,6 +197,7 @@ const FooterPhoneNum = styled.p`
 `;
 
 const BoldWorkSpace = styled.span`
+  font-size: 12px;
   font-weight: 500;
 `;
 
@@ -214,7 +215,7 @@ const Underline = styled.span`
 `;
 
 const FooterBankTitle = styled.p`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   margin-top: 20px;
 `;

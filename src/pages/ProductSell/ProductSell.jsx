@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API, fetchApi } from '../../config';
+import { DESC_TXT, INPUT_DATA } from './SellData';
 import styled from 'styled-components';
 import SellSubmit from './component/SellSubmit';
-import { DESC_TXT, INPUT_DATA } from './SellData';
-// import { fetchApi, API } from '../../config';
 
 const ProductSell = () => {
   const [photo, setPhoto] = useState([]);
@@ -12,12 +12,20 @@ const ProductSell = () => {
     title: '',
     subCategoryId: 0,
     region: '',
-    conditionId: '1',
-    exchangeable: '1',
+    conditionId: 1,
+    exchangeable: 1,
     price: 0,
     description: '',
-    userId: 1,
   });
+
+  const isLogin = !!localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!isLogin) {
+      alert('로그인이 필요합니다!');
+      navigate('/');
+    }
+  }, []);
 
   const navigate = useNavigate();
   const imgPreview = useRef();
@@ -25,10 +33,20 @@ const ProductSell = () => {
 
   const handleSellList = e => {
     const { name, value } = e.target;
-    setSellList(prev => ({ ...prev, [name]: value }));
+    const isNumberValue =
+      name === 'price' ||
+      name === 'exchangeable' ||
+      name === 'conditionId' ||
+      name === 'subCategoryId';
+
+    setSellList(prev => ({
+      ...prev,
+      [name]: isNumberValue ? parseInt(value) : value,
+    }));
   };
 
   const uploadPhoto = e => {
+    if (!imgPreview.current.files[0]) return null;
     setPhoto(prev => [
       ...prev,
       {
@@ -50,30 +68,37 @@ const ProductSell = () => {
 
   const submit = e => {
     e.preventDefault();
-    fetch('http://10.58.52.223:3000/products', {
+
+    let formData = new FormData();
+    const newArr = Object.keys(sellList);
+
+    imgList.forEach(file => formData.append('images', file));
+    newArr.forEach(item =>
+      formData.append(item, JSON.stringify(sellList[item]))
+    );
+
+    fetch('http://10.58.52.191:3000/products', {
       method: 'POST',
-      body: new URLSearchParams({ images: imgList, ...sellList }),
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+      body: formData,
     })
       .then(res => res.json())
       .then(result => {
         if (result.message === '판매상품_등록완료') {
           alert('상품이 등록되었습니다!');
-          navigate('/productdetail');
+          navigate('/');
         } else if (result.message) {
           alert(result.message);
         }
       })
       .catch(error => console.error(error));
-    // fetchData();
+    // fetchData(formData);
   };
 
-  // const fetchData = async () => {
-  //   const data = await fetchApi(
-  //     `${API.products}`,
-  //     'POST',
-  //     new URLSearchParams({ images: imgList, ...sellList }),
-  //     false
-  //   );
+  // const fetchData = async formData => {
+  //   const data = await fetchApi(`${API.products}`, 'POST', formData, true);
   //   if (data.message === '판매상품_등록완료') {
   //     alert('상품이 등록되었습니다!');
   //     navigate('/productdetail');
@@ -216,7 +241,6 @@ const ImgPost = styled.img`
 `;
 
 const DeleteButton = styled.button`
-  color: white;
   position: absolute;
   top: 8px;
   right: 10px;

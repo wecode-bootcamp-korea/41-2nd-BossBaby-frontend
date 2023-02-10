@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Login from '../../pages/Login/Login';
 
 const Nav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState('로그인');
   const [input, setInput] = useState('');
@@ -15,8 +16,13 @@ const Nav = () => {
   };
 
   useEffect(() => {
+    !isLogin && setTitle('로그인');
     isLogin && setTitle('마이페이지');
-  }, [isLogin]);
+  }, [isLogin, location.pathname]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   function handleInput(e) {
     setInput(e.target.value);
@@ -26,7 +32,7 @@ const Nav = () => {
     if (e.key === 'Enter') {
       e.preventDefault();
       navigate(
-        `/productlist/search?search=${input}&subCategory=inner&sort=price_asc&offset=0&limit=10`
+        `/productlist/search?search=${input}&sort=PRICE_ASC&offset=0&limit=12`
       );
     }
   }
@@ -59,7 +65,12 @@ const Nav = () => {
               <StyledLinkRight to="/mypage">마이페이지</StyledLinkRight>
             )}
             <LinkBar>|</LinkBar>
-            <StyledLinkRight to="/babeeTalk">베비톡</StyledLinkRight>
+            <StyledLinkRight
+              to="#none"
+              onClick={() => alert('오픈 준비중입니다!')}
+            >
+              베비톡
+            </StyledLinkRight>
           </LinkDiv>
           <BaBeeTalkImg src="../images/Nav/Comma.png" />
         </NavTop>
@@ -67,7 +78,7 @@ const Nav = () => {
           {CATEGORIES_LIST.map(item => (
             <StyledLinkCate
               key={item.id}
-              to={`/productlist?subCategory=${item.subCategory}&sort=recent&offset=0&limit=12`}
+              to={`/productlist?subCategory=${item.subCategory}&sort=RECENT&offset=0&limit=12`}
             >
               {item.title}
             </StyledLinkCate>
@@ -183,11 +194,11 @@ const StyledLinkCate = styled(Link)`
 export default Nav;
 
 const CATEGORIES_LIST = [
-  { id: 1, title: '내의/속옷', subCategory: 'inner' },
-  { id: 2, title: '상의/하의', subCategory: 'topbottom' },
-  { id: 3, title: '원피스', subCategory: 'onepiece' },
-  { id: 4, title: '신발', subCategory: 'shoes' },
-  { id: 5, title: '악세사리', subCategory: 'accessory' },
-  { id: 6, title: '이불/침구', subCategory: 'bedding' },
-  { id: 7, title: '인형/모빌', subCategory: 'toy' },
+  { id: 1, title: '내의/속옷', subCategory: 'INNER' },
+  { id: 2, title: '상의/하의', subCategory: 'TOP_BOTTOM' },
+  { id: 3, title: '원피스', subCategory: 'ONE_PIECE' },
+  { id: 4, title: '신발', subCategory: 'SHOES' },
+  { id: 5, title: '악세사리', subCategory: 'ACCESSORY' },
+  { id: 6, title: '이불/침구', subCategory: 'BEDDING' },
+  { id: 7, title: '인형/모빌', subCategory: 'TOY' },
 ];

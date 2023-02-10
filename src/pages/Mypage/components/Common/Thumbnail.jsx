@@ -9,9 +9,7 @@ const Thumbnail = ({ src, alt, size }) => {
   return (
     <ThumbWrap size={size}>
       {user.map(({ id, username }) => (
-        <Link key={id} to={`/users/${username}`}>
-          <Img src={src} alt={alt} />
-        </Link>
+        <Img src={src} alt={alt} />
       ))}
     </ThumbWrap>
   );
@@ -23,7 +21,6 @@ const ThumbWrap = styled.div`
   height: ${props => props.size};
   margin-right: 15px;
   border-radius: 100%;
-  cursor: pointer;
 `;
 
 export default Thumbnail;
