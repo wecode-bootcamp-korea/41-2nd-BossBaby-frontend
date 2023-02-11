@@ -12,7 +12,10 @@ const PaymentHeader = ({ productInfo }) => {
       <ProductItem>
         <Thumbnail src={thunbnail} alt="" size={50} />
         <WrapInfo>
-          <Title title={`${price.toLocaleString()}원`} fontSize={18} />
+          <Title
+            title={`${parseInt(price).toLocaleString()}원`}
+            fontSize={18}
+          />
           <Text>{title}</Text>
         </WrapInfo>
       </ProductItem>

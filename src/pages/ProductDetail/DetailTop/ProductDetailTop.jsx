@@ -68,9 +68,7 @@ const ProductDetailTop = ({ productId }) => {
                   <div className="categoryName">
                     {productObj.sub_categories}
                   </div>
-                  <div className="productName">
-                    {productObj.title.replaceAll('"', '')}
-                  </div>
+                  <div className="productName">{productObj.title}</div>
                   <div className="price">
                     {parseInt(productObj.price).toLocaleString()}원
                   </div>
